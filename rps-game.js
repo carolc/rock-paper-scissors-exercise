@@ -37,3 +37,19 @@ function winner(playerChoice, computerChoice) {
 // 5. Display the players and the computers choice on the webpage
 // 6. Use the function winner to determine the winner and display results on the page
 // 7. Allow the user to play a new game
+
+$(document).ready(function() {
+  $('.btn-primary').click(function(){
+    var playerPiece=$(this).attr("id");
+
+    $.get("http://rock-paper-scissors-api.herokuapp.com/", function(data){
+    $("#pieces-played").html("Player: "+playerPiece+" | "+"Computer: "+data);
+    })
+      .fail(function(){
+        alert("There was an error");
+      });
+  })
+
+
+
+});
